@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Knight Rider Light Animation</title>
+    <style>
+        #container {
+            width: 200px;
+            height: 50px;
+            background-color: black;
+            position: relative;
+            top: 300px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+
+        }
+
+        .light {
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            animation: knightRiderLight 1s linear infinite;
+        }
+
+        @keyframes knightRiderLight {
+            0% {
+                left: -10px;
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                left: 210px;
+                opacity: 0.2;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+</div>
+
+<script>
+    const lights = document.querySelectorAll('.light');
+    let delay = 0;
+
+    lights.forEach(light => {
+        light.style.animationDelay = `${delay}s`;
+        delay += 0.2;
+    });
+</script>
+</body>
+</html>
